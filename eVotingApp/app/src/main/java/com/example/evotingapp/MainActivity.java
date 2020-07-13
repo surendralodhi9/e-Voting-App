@@ -26,11 +26,51 @@ public class MainActivity extends AppCompatActivity {
         imageButtonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Intent intent=new Intent(getApplicationContext(),AdminActivity.class);
                 startActivity(intent);
             }
         });
+
+        imageButtonLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+        imageButtonAbout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(getApplicationContext(),AboutActivity.class);
+                startActivity(intent);
+            }
+
+        });
+        imageButtonContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent=new Intent(getApplicationContext(),ContactActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imageButtonHelp.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view)
+            {
+
+                Intent intent=new Intent(getApplicationContext(),HelpActivity.class);
+                startActivity(intent);
+            }
+
+        });
     }
+
     protected void setUpAllUi()
     {
 
@@ -39,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
         imageButtonAbout=(ImageButton)findViewById(R.id.imageButtonAbout);
         imageButtonContact=(ImageButton)findViewById(R.id.imageButtonContact);
         imageButtonHelp=(ImageButton)findViewById(R.id.imageButtonHelp);
-
-
 
     }
 }
