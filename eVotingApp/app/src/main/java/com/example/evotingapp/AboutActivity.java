@@ -16,9 +16,6 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         about=(TextView)findViewById(R.id.aboutTextView);
-        aboutHeading=(TextView)findViewById(R.id.aboutHeading);
-
-        aboutHeading.setText("AboutApplication");
 
 
         about.setMovementMethod(new ScrollingMovementMethod());

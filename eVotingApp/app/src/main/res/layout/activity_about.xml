@@ -7,30 +7,31 @@
     tools:context=".AboutActivity">
 
     <TextView
-        android:id="@+id/aboutTextView"
-        android:layout_width="381dp"
-        android:layout_height="476dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
-        android:scrollbars="vertical"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.68"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
         android:id="@+id/aboutHeading"
-        android:layout_width="329dp"
-        android:layout_height="62dp"
-        android:text="About Application"
+        android:layout_width="143dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="16dp"
+        android:text="About"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/aboutTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/aboutTextView"
+        android:layout_width="381dp"
+        android:layout_height="505dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:scrollbars="vertical"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutHeading" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

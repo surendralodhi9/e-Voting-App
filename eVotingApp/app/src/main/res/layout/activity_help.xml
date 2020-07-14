@@ -8,13 +8,14 @@
 
     <TextView
         android:id="@+id/helpHeading"
-        android:layout_width="108dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="115dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="16dp"
         android:text="Help"
         android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/aboutTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
