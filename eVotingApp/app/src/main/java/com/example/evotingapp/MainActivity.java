@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         setUpAllUi();
+        Toast.makeText(this,"Database connected successfully",Toast.LENGTH_LONG).show();
 
         imageButtonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override

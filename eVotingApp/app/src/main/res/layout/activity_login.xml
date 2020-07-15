@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPasswordLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
 
     <TextView
         android:id="@+id/passwordLable"
@@ -27,14 +27,14 @@
         android:layout_marginTop="44dp"
         android:text="Password"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editPasswordLogin"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPasswordLogin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLable" />
 
 
     <EditText
-        android:id="@+id/editTextEmailAddressLogin"
+        android:id="@+id/editTextEmailLogin"
         android:layout_width="206dp"
         android:layout_height="43dp"
         android:layout_marginTop="40dp"
@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/LoginHeadingView" />
 
     <EditText
-        android:id="@+id/editPasswordLogin"
+        android:id="@+id/editTextPasswordLogin"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="206dp"
         android:layout_height="41dp"
@@ -58,7 +58,7 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAddressLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogin" />
 
     <TextView
         android:id="@+id/emailLable"
@@ -69,7 +69,7 @@
         android:layout_marginTop="44dp"
         android:text="Username"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAddressLogin"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEmailLogin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginHeadingView" />

@@ -5,16 +5,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AdminActivity extends AppCompatActivity {
 
     protected Button loginButon;
+    DatabaseReference databaseReference;
+    protected EditText editEmail;
+    protected EditText editPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,21 +40,17 @@ public class AdminActivity extends AppCompatActivity {
 
         try {
 
+            databaseReference= FirebaseDatabase.getInstance().getReference().child("Admin");
+            int Id=1;
+            String Username=editEmail.getText().toString().trim();
+            String Password=editPassword.getText().toString().trim();
 
+            Admin admin=new Admin(Id,Username,Password);
+            System.out.println(admin.Password);
 
-            Class.forName("com.mysql.jdbc.Driver");
+            databaseReference.push().setValue(admin);
+            Toast.makeText(this,"Data inserted successfully!",Toast.LENGTH_LONG).show();
 
-            Connection connect = DriverManager
-                    .getConnection("jdbc:mysql://localhost:3308/mysql?autoReconnect=true&useSSL=false","root","");
-
-            Statement statement = connect.createStatement();
-            // Result set get the result of the SQL query
-           ResultSet resultSet = statement.executeQuery("select * from admin");
-           while(resultSet.next())
-           {
-
-               System.out.println("Username: "+resultSet.getString(1));
-           }
 
         }
         catch(Exception e)
@@ -67,5 +65,7 @@ public class AdminActivity extends AppCompatActivity {
     {
 
         loginButon=(Button)findViewById(R.id.adminLoginButton);
+        editEmail=(EditText)findViewById(R.id.editTextEmailAdmin);
+        editPassword=(EditText)findViewById(R.id.editTextPasswordAdmin);
     }
 }

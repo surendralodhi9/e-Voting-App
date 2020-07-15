@@ -15,13 +15,13 @@
         android:layout_marginTop="44dp"
         android:text="Password"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editPassword"
+        app:layout_constraintEnd_toStartOf="@+id/editTextPasswordAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLable" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextEmailAdmin"
         android:layout_width="206dp"
         android:layout_height="43dp"
         android:layout_marginTop="40dp"
@@ -55,13 +55,13 @@
         android:layout_marginTop="44dp"
         android:text="Username"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adminHeadingView" />
 
     <EditText
-        android:id="@+id/editPassword"
+        android:id="@+id/editTextPasswordAdmin"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="206dp"
         android:layout_height="41dp"
@@ -72,7 +72,7 @@
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextEmailAdmin" />
 
     <Button
         android:id="@+id/adminLoginButton"
@@ -84,5 +84,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordAdmin" />
 </androidx.constraintlayout.widget.ConstraintLayout>
