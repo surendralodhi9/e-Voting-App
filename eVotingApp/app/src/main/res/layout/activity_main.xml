@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".MainActivity">
 
     <ImageButton
@@ -29,7 +30,6 @@
         android:layout_marginStart="32dp"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="32dp"
-        android:focusableInTouchMode="true"
         android:src="@drawable/admin_button_res"
         app:layout_constraintEnd_toStartOf="@+id/imageButtonLogin"
         app:layout_constraintHorizontal_bias="0.0"

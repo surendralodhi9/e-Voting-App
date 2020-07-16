@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".ContactActivity">
 
     <TextView
@@ -12,8 +13,9 @@
         android:layout_height="47dp"
         android:layout_marginTop="16dp"
         android:text="Contact"
-        android:textSize="36sp"
+        android:textColor="@android:color/white"
 
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
