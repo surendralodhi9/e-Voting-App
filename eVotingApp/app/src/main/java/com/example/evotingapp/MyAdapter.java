@@ -5,8 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -31,9 +32,11 @@ public class MyAdapter extends ArrayAdapter<Candidate> {
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.grid_view_candidates, null);
         TextView nameView = (TextView) v.findViewById(R.id.nameView);
-        TextView signView = (TextView) v.findViewById(R.id.signView);
+        TextView constituencyView = (TextView) v.findViewById(R.id.constituencyView);
+        TextView usernameView=(TextView)v.findViewById(R.id.usernameView);
+        usernameView.setText(candidatesList.get(position).Username);
         nameView.setText(candidatesList.get(position).Name);
-        signView.setText(candidatesList.get(position).Sign);
+        constituencyView.setText(candidatesList.get(position).Constituency);
         return v;
 
     }

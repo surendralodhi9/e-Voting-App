@@ -5,31 +5,48 @@
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/nameView"
-        android:layout_width="183dp"
+        android:id="@+id/usernameView"
+        android:layout_width="159dp"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="14dp"
-        android:layout_marginLeft="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toStartOf="@+id/nameView"
+        android:layout_toLeftOf="@+id/nameView"
         android:padding="5dp"
-        android:text="Surendra" />
+        android:text="surendralodhi9"
+        android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/signView"
-        android:layout_width="182dp"
+        android:id="@+id/nameView"
+        android:layout_width="136dp"
         android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_toStartOf="@+id/constituencyView"
+        android:layout_toLeftOf="@+id/constituencyView"
+        android:padding="5dp"
+        android:text="Surendra Lodhi"
+        android:textColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/constituencyView"
+        android:layout_width="92dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="11dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginRight="21dp"
-        android:layout_toEndOf="@+id/nameView"
-        android:layout_toRightOf="@+id/nameView"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:padding="5dp"
-        android:text="Hand"
-        android:textColor="#000" />
+        android:text="Pichhore"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

@@ -6,6 +6,10 @@ public class Admin {
     public String Username;
     public String Password;
 
+    public Admin()
+    {
+
+    }
     public Admin(int Id,String Username,String Password)
     {
 

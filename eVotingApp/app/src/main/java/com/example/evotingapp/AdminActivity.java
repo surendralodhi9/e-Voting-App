@@ -3,6 +3,7 @@ package com.example.evotingapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,10 +16,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.List;
+
 public class AdminActivity extends AppCompatActivity {
 
     protected Button loginButon;
-    DatabaseReference databaseReference;
+    protected DatabaseReference databaseReference;
     protected EditText editEmail;
     protected EditText editPassword;
     public static long MaxId=0;
@@ -29,12 +33,14 @@ public class AdminActivity extends AppCompatActivity {
 
         setUpAllUi();
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Admin");
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.exists())
                     MaxId=(snapshot.getChildrenCount());
+
             }
 
             @Override
@@ -49,7 +55,57 @@ public class AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                dataBaseOperations();
+                String Username=editEmail.getText().toString().trim();
+                String Password=editPassword.getText().toString().trim();
+
+                if(Username.length()==0||Password.length()==0)
+                {
+                    Toast.makeText(getApplicationContext(),"Please fill all details...",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                //dataBaseOperations();
+
+                checkForAdminLogin(Username,Password);
+            }
+        });
+
+    }
+    public void checkForAdminLogin(final String Username, final String Password)
+    {
+
+
+
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Admin");
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+                for(DataSnapshot snapshot1 :snapshot.getChildren()) {
+
+                    Admin admin = snapshot1.getValue(Admin.class);
+
+                    if(Username.equalsIgnoreCase(admin.Username)&&Password.equalsIgnoreCase(admin.Password))
+                    {
+
+
+                        Intent intent=new Intent(getApplicationContext(),AdminHomeActivity.class);
+                        intent.putExtra("Username",Username);
+                        startActivity(intent);
+                        Toast.makeText(getApplicationContext(),"Login success!!",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+
+                }
+                Toast.makeText(getApplicationContext(),"Please enter correct username and password",Toast.LENGTH_LONG).show();
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
