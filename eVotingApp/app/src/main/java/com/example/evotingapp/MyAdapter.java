@@ -35,6 +35,7 @@ public class MyAdapter extends ArrayAdapter<Candidate> {
         TextView constituencyView = (TextView) v.findViewById(R.id.constituencyView);
         TextView usernameView=(TextView)v.findViewById(R.id.usernameView);
         usernameView.setText(candidatesList.get(position).Username);
+
         nameView.setText(candidatesList.get(position).Name);
         constituencyView.setText(candidatesList.get(position).Constituency);
         return v;

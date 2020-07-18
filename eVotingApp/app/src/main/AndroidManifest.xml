@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.evotingapp">
 
     <application
@@ -9,7 +10,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminHomeActivity"></activity>
+        <activity android:name=".UpdateActivity"
+            android:parentActivityName=".ModifyCandidateActivity">
+
+        </activity>
+        <activity
+            android:name=".DeleteActivity"
+            android:parentActivityName=".ModifyCandidateActivity">
+
+        </activity>
+        <activity
+            android:name=".DisplayActivity"
+            android:parentActivityName=".ModifyCandidateActivity" />
+        <activity android:name=".AdminHomeActivity" />
         <activity android:name=".ModifyCandidateActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".HelpActivity" />
@@ -18,8 +31,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".AdminActivity" />
         <activity
-            android:name=".ui.login.AdminActivity"
-            android:label="@string/title_activity_admin" />
+            android:name="ui.login.AdminActivity"
+            android:label="@string/title_activity_admin"
+            tools:ignore="MissingClass" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

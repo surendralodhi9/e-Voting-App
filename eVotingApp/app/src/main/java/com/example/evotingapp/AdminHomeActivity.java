@@ -37,6 +37,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent=new Intent(getApplicationContext(),ModifyCandidateActivity.class);
+                intent.putExtra("adminusername",welcomeUsername.getText().toString());
                 startActivity(intent);
             }
         });

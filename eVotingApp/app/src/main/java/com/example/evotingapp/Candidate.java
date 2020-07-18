@@ -1,6 +1,8 @@
 package com.example.evotingapp;
 
-public class Candidate {
+import java.io.Serializable;
+
+public class Candidate implements Serializable {
 
 
     public String Username;
@@ -8,6 +10,11 @@ public class Candidate {
     public String FatherName;
     public String Constituency;
     public String Sign;
+
+    public Candidate()
+    {
+
+    }
 
     public Candidate(String Username,String Name,String FatherName,String Constituency,String Sign)
     {

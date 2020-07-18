@@ -141,11 +141,11 @@
 
     <TextView
         android:id="@+id/updateHeading"
-        android:layout_width="143dp"
+        android:layout_width="wrap_content"
         android:layout_height="47dp"
 
         android:layout_marginTop="16dp"
-        android:text="Update"
+        android:text="Modify Candidate"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -83,11 +83,11 @@ public class RegistrationActivity extends AppCompatActivity {
     }
     protected void setUpAllUi()
     {
-        UsernameText=(EditText)findViewById(R.id.registerEmail);
-        NameText=(EditText)findViewById(R.id.registerName);
-        FatherNameText=(EditText)findViewById(R.id.registerFatherName);
-        ConstituencyText=(EditText)findViewById(R.id.registerConstituency);
-        SignText=(EditText)findViewById(R.id.registerSign);
-        submitButton=(Button)findViewById(R.id.registerButton);
+        UsernameText=(EditText)findViewById(R.id.updateEmail);
+        NameText=(EditText)findViewById(R.id.updateName);
+        FatherNameText=(EditText)findViewById(R.id.updateFatherName);
+        ConstituencyText=(EditText)findViewById(R.id.updateConstituency);
+        SignText=(EditText)findViewById(R.id.updateSign);
+        submitButton=(Button)findViewById(R.id.saveButton);
     }
 }
