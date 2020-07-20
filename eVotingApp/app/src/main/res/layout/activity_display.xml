@@ -101,7 +101,6 @@
         android:text="Username"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/displayHeading" />
@@ -129,7 +128,6 @@
         android:text="Name"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLable4" />
@@ -144,7 +142,6 @@
         android:text="Father Name"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerNameLable2" />
@@ -159,7 +156,6 @@
         android:text="Constituency"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLable6" />
@@ -174,7 +170,6 @@
         android:text="Sign"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailAdmin"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lableConstituency2" />

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".RegisterVoterActivity">
+
+    <TextView
+        android:id="@+id/VoterRegisterHeading"
+        android:layout_width="166dp"
+        android:layout_height="55dp"
+
+        android:layout_marginTop="16dp"
+        android:text="Register"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/userEmai"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="66dp"
+        android:text="Email"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VoterRegisterHeading" />
+
+    <EditText
+        android:id="@+id/voterEmail"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:hint="Enter username"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/VoterRegisterHeading" />
+
+    <TextView
+        android:id="@+id/registerNameLable3"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Name"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userEmai" />
+
+    <EditText
+        android:id="@+id/voterName"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:hint="Enter name"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterEmail" />
+
+    <TextView
+        android:id="@+id/voterAgeLable"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Age"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerNameLable3" />
+
+    <EditText
+        android:id="@+id/voterAge"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/edit_text_background"
+        android:ems="10"
+        android:hint="Enter age"
+        android:inputType="textEmailAddress"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterName" />
+
+    <TextView
+        android:id="@+id/lableConstituency3"
+        android:layout_width="130dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Constituency"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterAgeLable" />
+
+    <Button
+        android:id="@+id/saveVoterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Submit"
+        android:textColor="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterConstituencySpinner" />
+
+    <Spinner
+        android:id="@+id/voterConstituencySpinner"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterAge" />
+</androidx.constraintlayout.widget.ConstraintLayout>

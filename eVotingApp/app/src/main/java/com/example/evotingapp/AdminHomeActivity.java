@@ -13,6 +13,8 @@ public class AdminHomeActivity extends AppCompatActivity {
     private TextView welcomeUsername;
     private Button registerButton;
     private Button modifyButton;
+    private Button registerVoterButton;
+    private Button modifyVoterButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,12 +43,27 @@ public class AdminHomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        registerVoterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(getApplicationContext(),RegisterVoterActivity.class);
+                startActivity(intent);
+            }
+        });
+        modifyVoterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
     protected void setUpAllUi(){
 
 
         welcomeUsername=(TextView)findViewById(R.id.welcomeUsername);
         registerButton=(Button)findViewById(R.id.registerPageButton);
-        modifyButton=(Button)findViewById(R.id.modifyPageButton);
+        modifyButton=(Button)findViewById(R.id.modifyVoterButton);
+        modifyVoterButton=(Button)findViewById(R.id.modifyVoterButton);
+        registerVoterButton=(Button)findViewById(R.id.registerVoterButton);
     }
 }

@@ -8,7 +8,7 @@
     tools:context=".AdminHomeActivity">
 
     <Button
-        android:id="@+id/modifyPageButton"
+        android:id="@+id/modifyPageButton2"
         android:layout_width="175dp"
         android:layout_height="55dp"
         android:layout_marginTop="92dp"
@@ -20,6 +20,38 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeUsername" />
+
+    <Button
+        android:id="@+id/registerVoterButton"
+        android:layout_width="175dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Voter Register"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/modifyVoterButton"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPageButton" />
+
+    <Button
+        android:id="@+id/modifyVoterButton"
+        android:layout_width="175dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Voter Modify"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modifyPageButton2" />
 
     <Button
         android:id="@+id/registerPageButton"
@@ -34,7 +66,7 @@
         android:text="Register"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/modifyPageButton"
+        app:layout_constraintEnd_toStartOf="@+id/modifyVoterButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/welcomeUsername" />
 
@@ -80,4 +112,5 @@
         app:layout_constraintEnd_toStartOf="@+id/welcomeUsername"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adminHomeHeading" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

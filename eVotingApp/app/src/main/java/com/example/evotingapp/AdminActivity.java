@@ -16,9 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-import java.util.List;
-
 public class AdminActivity extends AppCompatActivity {
 
     protected Button loginButon;
@@ -139,7 +136,7 @@ public class AdminActivity extends AppCompatActivity {
     protected void setUpAllUi()
     {
 
-        loginButon=(Button)findViewById(R.id.adminLoginButton);
+        loginButon=(Button)findViewById(R.id.voterLoginButton);
         editEmail=(EditText)findViewById(R.id.editTextEmailAdmin);
         editPassword=(EditText)findViewById(R.id.editTextPasswordAdmin);
     }

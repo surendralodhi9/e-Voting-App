@@ -8,7 +8,21 @@
     tools:context=".LoginActivity">
 
     <Button
-        android:id="@+id/adminLoginButton"
+        android:id="@+id/voterSignOutButton"
+        android:layout_width="107dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="136dp"
+        android:background="@android:color/holo_blue_light"
+        android:text="Sign out"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/voterLoginButton" />
+
+    <Button
+        android:id="@+id/voterLoginButton"
         android:layout_width="107dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"

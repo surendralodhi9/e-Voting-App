@@ -40,7 +40,6 @@ public class ModifyCandidateActivity extends AppCompatActivity {
     public static int CandidateId;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,7 +175,6 @@ public class ModifyCandidateActivity extends AppCompatActivity {
 
 
     }
-
     protected void setUpAllUi()
     {
 

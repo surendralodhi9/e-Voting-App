@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailAdmin" />
 
     <Button
-        android:id="@+id/adminLoginButton"
+        android:id="@+id/voterLoginButton"
         android:layout_width="107dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
