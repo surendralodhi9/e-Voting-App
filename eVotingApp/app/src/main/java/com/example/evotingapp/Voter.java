@@ -1,6 +1,8 @@
 package com.example.evotingapp;
 
-public class Voter {
+import java.io.Serializable;
+
+public class Voter implements Serializable {
 
 
     public String Email;
