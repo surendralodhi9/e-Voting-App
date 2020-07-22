@@ -38,9 +38,11 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+
                 Intent intent=new Intent(getApplicationContext(),ModifyCandidateActivity.class);
                 intent.putExtra("adminusername",welcomeUsername.getText().toString());
                 startActivity(intent);
+                System.out.println("hhhhhhhhhhhhhhhhh");
             }
         });
         registerVoterButton.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +64,7 @@ public class AdminHomeActivity extends AppCompatActivity {
 
         welcomeUsername=(TextView)findViewById(R.id.welcomeUsername);
         registerButton=(Button)findViewById(R.id.registerPageButton);
-        modifyButton=(Button)findViewById(R.id.modifyVoterButton);
+        modifyButton=(Button)findViewById(R.id.modifyPageButton);
         modifyVoterButton=(Button)findViewById(R.id.modifyVoterButton);
         registerVoterButton=(Button)findViewById(R.id.registerVoterButton);
     }

@@ -8,7 +8,7 @@
     tools:context=".AdminHomeActivity">
 
     <Button
-        android:id="@+id/modifyPageButton2"
+        android:id="@+id/modifyPageButton"
         android:layout_width="175dp"
         android:layout_height="55dp"
         android:layout_marginTop="92dp"
@@ -51,7 +51,7 @@
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/modifyPageButton2" />
+        app:layout_constraintTop_toBottomOf="@+id/modifyPageButton" />
 
     <Button
         android:id="@+id/registerPageButton"

@@ -83,7 +83,7 @@ public class UpdateActivity extends AppCompatActivity {
     {
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate").child(String.valueOf(CandidateId));
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

@@ -7,93 +7,50 @@
     android:background="@color/background_color"
     tools:context=".LoginActivity">
 
+
     <Button
         android:id="@+id/voterSignOutButton"
         android:layout_width="107dp"
         android:layout_height="48dp"
-        android:layout_marginTop="136dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
         android:background="@android:color/holo_blue_light"
         android:text="Sign out"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/voterLoginButton" />
+        app:layout_constraintTop_toBottomOf="@+id/emailLable" />
 
     <Button
         android:id="@+id/voterLoginButton"
         android:layout_width="107dp"
         android:layout_height="48dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="44dp"
         android:background="@android:color/holo_blue_light"
         android:text="Login"
         android:textColor="@color/colorPrimary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
-
-    <TextView
-        android:id="@+id/passwordLable"
-        android:layout_width="110dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="44dp"
-        android:text="Password"
-        android:textColor="@android:color/white"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextPasswordLogin"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.138"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/emailLable" />
 
-
-    <EditText
-        android:id="@+id/editTextEmailLogin"
-        android:layout_width="206dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="Enter username"
-        android:inputType="textEmailAddress"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginHeadingView" />
-
-    <EditText
-        android:id="@+id/editTextPasswordLogin"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="206dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="Enter password"
-        android:inputType="textPassword"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogin" />
-
     <TextView
         android:id="@+id/emailLable"
-        android:layout_width="109dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="44dp"
-        android:text="Username"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Please login using gmail"
         android:textColor="@android:color/white"
         android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/editTextEmailLogin"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginHeadingView" />
 

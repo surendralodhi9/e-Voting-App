@@ -152,7 +152,7 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         System.out.println("Calling addDataInList: "+candidatesList.size());
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

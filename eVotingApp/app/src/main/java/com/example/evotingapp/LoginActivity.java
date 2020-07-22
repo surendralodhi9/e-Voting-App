@@ -32,8 +32,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText voterEmail;
-    private EditText voterPassword;
     private Button loginButton;
     private GoogleSignInClient googleSignInClient;
     private FirebaseAuth mAuth;
@@ -120,7 +118,6 @@ public class LoginActivity extends AppCompatActivity {
                     updateUi(null);
                 }
 
-
             }
         });
     }
@@ -147,32 +144,43 @@ public class LoginActivity extends AppCompatActivity {
     {
 
         DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("Voter");
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                int id=1;
 
                 for(DataSnapshot snapshot1 :snapshot.getChildren()) {
 
                     Voter voter = snapshot1.getValue(Voter.class);
+                    //Candidate candidate=dataSnapshot.getValue(Candidate.class);
 
                     if(personEmail.equalsIgnoreCase(voter.Email))
                     {
+                        System.out.println("Email: "+voter.Email);
+                        System.out.println("Email2 "+personEmail);
 
                         if(voter.Voted==true) {
+
                             Toast.makeText(getApplicationContext(), "You have already used your Voting right", Toast.LENGTH_LONG).show();
+                            return;
                         }
                         else {
 
-                            Intent intent = new Intent(getApplicationContext(), AdminHomeActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), VotecastActivity.class);
+                            intent.putExtra("voterid",String.valueOf(id));
                             intent.putExtra("voter", voter);
                             startActivity(intent);
                             //Toast.makeText(getApplicationContext(),"Login success!!",Toast.LENGTH_LONG).show();
                             return;
+
                         }
+
                     }
+                    id++;
 
                 }
+                //if(fl==0)
                 Toast.makeText(getApplicationContext(),"Sorry.. you are not registered voter.\nPlease contact your BLO.. ",Toast.LENGTH_LONG).show();
 
             }
@@ -187,8 +195,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void setUpAllUi()
     {
 
-        voterEmail=(EditText)findViewById(R.id.editTextEmailLogin);
-        voterPassword=(EditText)findViewById(R.id.editTextPasswordLogin);
         loginButton=(Button)findViewById(R.id.voterLoginButton);
         signOutButton=(Button)findViewById(R.id.voterSignOutButton);
     }

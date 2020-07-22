@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VotecastActivity"></activity>
+        <activity android:name=".VotecastActivity"
+               android:parentActivityName=".LoginActivity">
+        </activity>
         <activity android:name=".RegisterVoterActivity" />
         <activity
             android:name=".UpdateActivity"
