@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class MyAdapter extends ArrayAdapter<Candidate> {
@@ -31,9 +29,9 @@ public class MyAdapter extends ArrayAdapter<Candidate> {
         View v = convertView;
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         v = inflater.inflate(R.layout.grid_view_candidates, null);
-        TextView nameView = (TextView) v.findViewById(R.id.nameView);
-        TextView constituencyView = (TextView) v.findViewById(R.id.constituencyView);
-        TextView usernameView=(TextView)v.findViewById(R.id.usernameView);
+        TextView nameView = (TextView) v.findViewById(R.id.signVotecastView);
+        TextView constituencyView = (TextView) v.findViewById(R.id.voteButton);
+        TextView usernameView=(TextView)v.findViewById(R.id.nameVotecastView);
         usernameView.setText(candidatesList.get(position).Username);
 
         nameView.setText(candidatesList.get(position).Name);

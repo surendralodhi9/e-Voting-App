@@ -4,9 +4,10 @@
     android:layout_height="match_parent"
     android:orientation="horizontal">
 
+
     <TextView
-        android:id="@+id/usernameView"
-        android:layout_width="159dp"
+        android:id="@+id/nameVotecastView"
+        android:layout_width="217dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -14,39 +15,39 @@
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="6dp"
+        android:layout_marginEnd="9dp"
         android:layout_marginRight="8dp"
-        android:layout_toStartOf="@+id/nameView"
-        android:layout_toLeftOf="@+id/nameView"
+        android:layout_toStartOf="@+id/signVotecastView"
+        android:layout_toLeftOf="@+id/signVotecastView"
         android:padding="5dp"
         android:text="surendralodhi9"
         android:textColor="@android:color/white" />
 
     <TextView
-        android:id="@+id/nameView"
-        android:layout_width="136dp"
+        android:id="@+id/signVotecastView"
+        android:layout_width="74dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="11dp"
         android:layout_marginRight="8dp"
-        android:layout_toStartOf="@+id/constituencyView"
-        android:layout_toLeftOf="@+id/constituencyView"
+        android:layout_toStartOf="@+id/voteButton"
+        android:layout_toLeftOf="@+id/voteButton"
         android:padding="5dp"
-        android:text="Surendra Lodhi"
+        android:text="Hand"
         android:textColor="@android:color/white" />
 
-    <TextView
-        android:id="@+id/constituencyView"
-        android:layout_width="92dp"
-        android:layout_height="wrap_content"
+    <Button
+        android:id="@+id/voteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="0dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
         android:padding="5dp"
-        android:text="Pichhore"
+        android:text="Vote"
         android:textColor="@android:color/white" />
 </RelativeLayout>
