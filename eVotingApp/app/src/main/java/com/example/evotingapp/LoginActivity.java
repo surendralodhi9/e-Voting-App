@@ -49,10 +49,14 @@ public class LoginActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         googleSignInClient= GoogleSignIn.getClient(this,gsio);
+        googleSignInClient.signOut();
+        signOutButton.setVisibility(View.INVISIBLE);
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                googleSignInClient.signOut();
+                signOutButton.setVisibility(View.INVISIBLE);
                 signIn();
             }
         });

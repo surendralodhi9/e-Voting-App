@@ -58,8 +58,11 @@ public class AdapterCandidate extends ArrayAdapter<Candidate> {
             @Override
             public void onClick(View view) {
 
-                if(clicked==1)
+                if(clicked==1) {
+
+                    contextLogin.startActivity(VotecastActivity.intentLogOut);
                     return;
+                }
 
                 try {
                     mp.start();
