@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,9 +24,12 @@ public class VotecastActivity extends AppCompatActivity {
 
     private TextView voterName;
     public DatabaseReference databaseReference;
-
+    public Button voteButton;
     private ArrayList<Candidate> candidatesList;
     private GridView displayVotecastGrid;
+    public static String id;
+    public static Voter voter;
+    public static Intent intentLogOut;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,19 +40,48 @@ public class VotecastActivity extends AppCompatActivity {
         candidatesList=new ArrayList<>();
 
         Intent intent=getIntent();
-        Voter voter=(Voter)intent.getSerializableExtra("voter");
+        voter=(Voter)intent.getSerializableExtra("voter");
+        id=intent.getStringExtra("voterid");
+        intentLogOut=new Intent(getApplicationContext(),LoginActivity.class);
+        intentLogOut.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
         voterName.setText(voter.Name);
         addDataInList();
+        displayVotecastGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+                final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Voter").child(id);
+
+                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                        String val=snapshot.child("Voted").getValue().toString();
+                        System.out.println("Touch value: "+val);
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+
+            }
+        });
         //updateVotingStatus(voter,intent.getStringExtra("voterid"));
     }
-
-    protected void updateVotingStatus(Voter voter,String id)
+    public static void updateVotingStatus()
     {
-
         voter.Voted=true;
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Voter");
         databaseReference.child(id).setValue(voter);
-        Toast.makeText(getApplicationContext(),"Congratulations!! you casted your vote",Toast.LENGTH_LONG).show();
+
+        //Toast.makeText(getApplicationContext(),"Congratulations!! you casted your vote",Toast.LENGTH_LONG).show();
     }
     protected void addDataInList()
     {
@@ -77,7 +112,6 @@ public class VotecastActivity extends AppCompatActivity {
 
     }
     protected void setUpAllUi(){
-
 
         voterName=(TextView)findViewById(R.id.voterNameView);
         displayVotecastGrid=(GridView)findViewById(R.id.displayVotecastGrid);

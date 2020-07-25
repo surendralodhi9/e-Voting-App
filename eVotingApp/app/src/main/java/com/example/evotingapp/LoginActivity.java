@@ -35,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button loginButton;
     private GoogleSignInClient googleSignInClient;
     private FirebaseAuth mAuth;
-    private  Button signOutButton;
+    private Button signOutButton;
     private int RC_SIGN_IN=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         if(requestCode==RC_SIGN_IN)
         {
+
             Task<GoogleSignInAccount> task=GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }
