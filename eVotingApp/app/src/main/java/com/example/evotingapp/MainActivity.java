@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view)
             {
 
-                Intent intent=new Intent(getApplicationContext(),RegisterVoterActivity.class);
+                Intent intent=new Intent(getApplicationContext(),HelpActivity.class);
                 startActivity(intent);
             }
 
