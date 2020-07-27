@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Voter implements Serializable {
 
 
+    public  long Id;
     public String Email;
     public String Name;
     public int Age;
@@ -15,9 +16,10 @@ public class Voter implements Serializable {
     {
 
     }
-    public Voter(String Email,String Name,int Age,String Constituency)
+    public Voter(long Id,String Email,String Name,int Age,String Constituency)
     {
 
+        this.Id=Id;
         this.Email=Email;
         this.Name=Name;
         this.Voted=false;

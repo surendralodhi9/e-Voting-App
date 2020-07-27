@@ -153,8 +153,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                int id=1;
-
                 for(DataSnapshot snapshot1 :snapshot.getChildren()) {
 
                     Voter voter = snapshot1.getValue(Voter.class);
@@ -173,7 +171,6 @@ public class LoginActivity extends AppCompatActivity {
                         else {
 
                             Intent intent = new Intent(getApplicationContext(), VotecastActivity.class);
-                            intent.putExtra("voterid",String.valueOf(id));
                             intent.putExtra("voter", voter);
                             startActivity(intent);
                             //Toast.makeText(getApplicationContext(),"Login success!!",Toast.LENGTH_LONG).show();
@@ -182,8 +179,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
 
                     }
-                    id++;
-
                 }
                 //if(fl==0)
                 Toast.makeText(getApplicationContext(),"Sorry.. you are not registered voter.\nPlease contact your BLO.. ",Toast.LENGTH_LONG).show();

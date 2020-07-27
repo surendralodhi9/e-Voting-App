@@ -19,6 +19,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegisterVoterActivity extends AppCompatActivity {
 
 
@@ -35,12 +38,14 @@ public class RegisterVoterActivity extends AppCompatActivity {
     public ArrayAdapter<String> adapter;
     public DatabaseReference databaseReference;
 
+    public List<Voter> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_voter);
 
         setUpAllUi();
+        list=new ArrayList<>();
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Voter");
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -48,6 +53,12 @@ public class RegisterVoterActivity extends AppCompatActivity {
 
                 if(snapshot.exists())
                     MaxId=(snapshot.getChildrenCount());
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    Voter voter=dataSnapshot.getValue(Voter.class);
+
+                    list.add(voter);
+                }
             }
 
             @Override
@@ -69,7 +80,6 @@ public class RegisterVoterActivity extends AppCompatActivity {
 
                 conId=position;
                 //voterEmail.setText(constituencyList[conId]);
-
 
             }
 
@@ -108,7 +118,12 @@ public class RegisterVoterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Voter must be at least 18 years old!!",Toast.LENGTH_LONG).show();
                     return;
                 }
-                Voter voter=new Voter(Email,Name, voterage,constituencyList[conId]);
+                if(alreadyExist(Email))
+                {
+                    Toast.makeText(getApplicationContext(),"Voter already exist of this username...",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Voter voter=new Voter(MaxId+1,Email,Name, voterage,constituencyList[conId]);
 
 
                 databaseReference.child(String.valueOf(MaxId+1)).setValue(voter);
@@ -119,6 +134,20 @@ public class RegisterVoterActivity extends AppCompatActivity {
         });
 
     }
+    protected boolean alreadyExist(String Email)
+    {
+
+        for(int i=0;i<list.size();i++)
+        {
+
+            if(Email.equalsIgnoreCase(list.get(i).Email)){
+
+                return true;
+            }
+        }
+        return false;
+    }
+
     protected boolean goodFormate(String age)
     {
 

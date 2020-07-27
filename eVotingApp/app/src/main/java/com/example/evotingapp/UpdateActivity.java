@@ -37,9 +37,8 @@ public class UpdateActivity extends AppCompatActivity {
         setUpAllUi();
         Intent intent=getIntent();
 
-        CandidateId=Long.parseLong(intent.getStringExtra("CandidateId"));
-
         Candidate candidate=(Candidate)intent.getSerializableExtra("candidate");
+        CandidateId=candidate.Id;
         updateUsernameText.setText(candidate.Username);
         updateFatherNameText.setText(candidate.FatherName);
         updateNameText.setText(candidate.Name);
@@ -63,7 +62,7 @@ public class UpdateActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please fill all the details...",Toast.LENGTH_LONG).show();
                     return;
                 }
-                Candidate candidate=new Candidate(Username,Name,FatherName,Constituency,Sign);
+                Candidate candidate=new Candidate(CandidateId,Username,Name,FatherName,Constituency,Sign);
 
 
                 databaseReference.child(String.valueOf(CandidateId)).setValue(candidate);

@@ -18,9 +18,9 @@ public class AboutActivity extends AppCompatActivity {
         about=(TextView)findViewById(R.id.aboutTextView);
 
 
-        String message="* Evoting App is application for remote voting.\n" +
+        String message="* E-voting App is application for remote voting.\n" +
                 "\n* You can vote from anywhere in the world.\n" +
-                "\n * This helps to increase voting percentage and saving the time of voters.";
+                "\n * This App helps to increase voting percentage and saving the time of voters.";
         about.setMovementMethod(new ScrollingMovementMethod());
         about.setText(message);
 

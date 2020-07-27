@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         setUpAllUi();
-        Toast.makeText(this,"Database connected successfully",Toast.LENGTH_LONG).show();
 
         imageButtonAdmin.setOnClickListener(new View.OnClickListener() {
             @Override

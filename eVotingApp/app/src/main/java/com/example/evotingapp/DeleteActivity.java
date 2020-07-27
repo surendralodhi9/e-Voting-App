@@ -18,7 +18,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 public class DeleteActivity extends AppCompatActivity {
 
     private TextView deleteUsername;
@@ -46,9 +45,8 @@ public class DeleteActivity extends AppCompatActivity {
                     return;
                 }
                 Intent intent=getIntent();
-                String adminusername=intent.getStringExtra("adminusername");
-                String Username=intent.getStringExtra("username");
-
+                String adminusername=AdminHomeActivity.Adminusername;
+                String Username=deleteUsername.getText().toString();
                 checkForAdminLogin(adminusername,Password,Username);
 
                 }
@@ -69,9 +67,9 @@ public class DeleteActivity extends AppCompatActivity {
 
                     Admin admin = snapshot1.getValue(Admin.class);
 
+
                     if(Username.equalsIgnoreCase(admin.Username)&&Password.equalsIgnoreCase(admin.Password))
                     {
-
                         deleteCandidate(Candidateusername);
                         deleteResult(Candidateusername);
                         return;
@@ -114,7 +112,6 @@ public class DeleteActivity extends AppCompatActivity {
     }
     protected void deleteResult(String Username)
     {
-
         DatabaseReference dbcandidate = FirebaseDatabase.getInstance().getReference();
         Query applesQuery = dbcandidate.child("Result").orderByChild("Username").equalTo(Username);
 

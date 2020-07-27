@@ -15,6 +15,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     private Button modifyButton;
     private Button registerVoterButton;
     private Button modifyVoterButton;
+    public static String Adminusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class AdminHomeActivity extends AppCompatActivity {
         setUpAllUi();
         Intent intent=getIntent();
         String Username=intent.getStringExtra("Username");
+        Adminusername=Username;
         welcomeUsername.setText(Username);
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +43,9 @@ public class AdminHomeActivity extends AppCompatActivity {
 
                 Intent intent=new Intent(getApplicationContext(),ModifyCandidateActivity.class);
                 intent.putExtra("adminusername",welcomeUsername.getText().toString());
+
                 startActivity(intent);
-                System.out.println("hhhhhhhhhhhhhhhhh");
+                //System.out.println("hhhhhhhhhhhhhhhhh");
             }
         });
         registerVoterButton.setOnClickListener(new View.OnClickListener() {

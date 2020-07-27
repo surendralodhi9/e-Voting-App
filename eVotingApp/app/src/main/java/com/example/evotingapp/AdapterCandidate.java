@@ -67,7 +67,7 @@ public class AdapterCandidate extends ArrayAdapter<Candidate> {
                 try {
                     mp.start();
                     VotecastActivity.updateVotingStatus();
-                    updateVoteCount(String.valueOf(position+1),candidatesList.get(position).Username);
+                    updateVoteCount(String.valueOf(position+1),candidatesList.get(position));
                     clicked=1;
                     sleep(5000);
 
@@ -84,7 +84,7 @@ public class AdapterCandidate extends ArrayAdapter<Candidate> {
         return v;
 
     }
-    public void updateVoteCount(final String position, final String username)
+    public void updateVoteCount(final String position, final Candidate candidate)
     {
         final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Result").child(position);
 
@@ -94,9 +94,9 @@ public class AdapterCandidate extends ArrayAdapter<Candidate> {
 
                 int votes=Integer.parseInt(snapshot.child("Votes").getValue().toString());
                 DatabaseReference db=FirebaseDatabase.getInstance().getReference().child("Result");
-                Result res=new Result(username);
+                Result res=new Result(candidate.Id,candidate.Username);
                 res.Votes=votes+1;
-                db.child(position).setValue(res);
+                db.child(String.valueOf(res.Id)).setValue(res);
 
             }
 

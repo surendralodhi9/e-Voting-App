@@ -27,7 +27,6 @@ public class VotecastActivity extends AppCompatActivity {
     public Button voteButton;
     private ArrayList<Candidate> candidatesList;
     private GridView displayVotecastGrid;
-    public static String id;
     public static Voter voter;
     public static Intent intentLogOut;
     @Override
@@ -41,45 +40,18 @@ public class VotecastActivity extends AppCompatActivity {
 
         Intent intent=getIntent();
         voter=(Voter)intent.getSerializableExtra("voter");
-        id=intent.getStringExtra("voterid");
         intentLogOut=new Intent(getApplicationContext(),LoginActivity.class);
         intentLogOut.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         voterName.setText(voter.Name);
         addDataInList();
-        displayVotecastGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-
-                final DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Voter").child(id);
-
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                        String val=snapshot.child("Voted").getValue().toString();
-                        System.out.println("Touch value: "+val);
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-
-
-
-            }
-        });
         //updateVotingStatus(voter,intent.getStringExtra("voterid"));
     }
     public static void updateVotingStatus()
     {
         voter.Voted=true;
         DatabaseReference databaseReference= FirebaseDatabase.getInstance().getReference().child("Voter");
-        databaseReference.child(id).setValue(voter);
+        databaseReference.child(String.valueOf(voter.Id)).setValue(voter);
 
         //Toast.makeText(getApplicationContext(),"Congratulations!! you casted your vote",Toast.LENGTH_LONG).show();
     }

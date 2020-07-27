@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegistrationActivity extends AppCompatActivity {
 
 
@@ -28,12 +31,14 @@ public class RegistrationActivity extends AppCompatActivity {
     public static long MaxId=0;
     protected DatabaseReference databaseReference;
     protected DatabaseReference dbReferenceResult;
+    public List<Candidate> list;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
         setUpAllUi();
+        list=new ArrayList<>();
         dbReferenceResult=FirebaseDatabase.getInstance().getReference().child("Result");
 
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
@@ -43,6 +48,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 if(snapshot.exists())
                     MaxId=(snapshot.getChildrenCount());
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    Candidate candidate=dataSnapshot.getValue(Candidate.class);
+
+                   list.add(candidate);
+                }
             }
 
             @Override
@@ -66,8 +77,14 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Please fill all the details...",Toast.LENGTH_LONG).show();
                     return;
                 }
-                Candidate candidate=new Candidate(Username,Name,FatherName,Constituency,Sign);
-                Result result=new Result(Username);
+
+                    if(alreadyExist(Username)) {
+                        Toast.makeText(getApplicationContext(), "Username/Email already exist..", Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+                Candidate candidate=new Candidate(MaxId+1,Username,Name,FatherName,Constituency,Sign);
+                Result result=new Result(MaxId+1,Username);
 
                 databaseReference.child(String.valueOf(MaxId+1)).setValue(candidate);
                 dbReferenceResult.child(String.valueOf(MaxId+1)).setValue(result);
@@ -80,6 +97,19 @@ public class RegistrationActivity extends AppCompatActivity {
 
             }
         });
+    }
+    protected boolean alreadyExist(String Username)  {
+
+
+        for(int i=0;i<list.size();i++)
+        {
+
+            if(Username.equalsIgnoreCase(list.get(i).Username)){
+
+                return true;
+            }
+        }
+            return false;
     }
     protected void setUpAllUi()
     {

@@ -70,8 +70,6 @@ public class AdminActivity extends AppCompatActivity {
     public void checkForAdminLogin(final String Username, final String Password)
     {
 
-
-
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Admin");
 
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -85,8 +83,6 @@ public class AdminActivity extends AppCompatActivity {
 
                     if(Username.equalsIgnoreCase(admin.Username)&&Password.equalsIgnoreCase(admin.Password))
                     {
-
-
                         Intent intent=new Intent(getApplicationContext(),AdminHomeActivity.class);
                         intent.putExtra("Username",Username);
                         startActivity(intent);

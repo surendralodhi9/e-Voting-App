@@ -37,8 +37,7 @@ public class ModifyCandidateActivity extends AppCompatActivity {
     public DatabaseReference databaseReference;
 
     private ArrayList<Candidate> candidatesList;
-    public static int CandidateId;
-
+    public static String Adminusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +48,11 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         setUpAllUi();
         candidatesList=new ArrayList<>();
 
+        Intent intent=getIntent();
+
+        Adminusername=intent.getStringExtra("adminusername");
+        System.out.println("Admin    "+Adminusername);
         addDataInList();
-
-
 
 
         displayGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -75,10 +76,8 @@ public class ModifyCandidateActivity extends AppCompatActivity {
                     return;
                 }
 
-                Intent currentintent=getIntent();
-
                 Intent intent=new Intent(getApplicationContext(),DeleteActivity.class);
-                intent.putExtra("adminusername",currentintent.getStringExtra("adminusername"));
+                intent.putExtra("adminusername",Adminusername);
                 intent.putExtra("username",user);
                 startActivity(intent);
             }
@@ -125,10 +124,8 @@ public class ModifyCandidateActivity extends AppCompatActivity {
                 }
                 Intent intent=new Intent(getApplicationContext(),UpdateActivity.class);
 
-                Intent intent1=getIntent();
-                intent.putExtra("adminusername",intent1.getStringExtra("adminusername"));
+                intent.putExtra("adminusername",Adminusername);
                 intent.putExtra("candidate", candidate);
-                intent.putExtra("CandidateId",String.valueOf(CandidateId));
                 startActivity(intent);
             }
         });
@@ -139,7 +136,6 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         {
 
             if(user.equalsIgnoreCase(candidatesList.get(i).Username)) {
-                CandidateId = i + 1;
                 return candidatesList.get(i);
             }
         }
@@ -184,7 +180,6 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         deleteButton=(Button)findViewById(R.id.deleteButton);
         updateButton=(Button)findViewById(R.id.updateButton);
         displayGrid=(GridView)findViewById(R.id.displayGrid);
-
 
     }
 }
