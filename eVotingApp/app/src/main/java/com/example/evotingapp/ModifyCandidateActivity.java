@@ -149,10 +149,12 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         System.out.println("Calling addDataInList: "+candidatesList.size());
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
 
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                if(candidatesList.size()>0)
+                    candidatesList=new ArrayList<>();
                 for(DataSnapshot dataSnapshot:snapshot.getChildren())
                 {
                     Candidate candidate=dataSnapshot.getValue(Candidate.class);
@@ -180,6 +182,7 @@ public class ModifyCandidateActivity extends AppCompatActivity {
         deleteButton=(Button)findViewById(R.id.deleteButton);
         updateButton=(Button)findViewById(R.id.updateButton);
         displayGrid=(GridView)findViewById(R.id.displayGrid);
+
 
     }
 }

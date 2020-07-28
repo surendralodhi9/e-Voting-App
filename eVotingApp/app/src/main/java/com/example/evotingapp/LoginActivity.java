@@ -160,8 +160,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     if(personEmail.equalsIgnoreCase(voter.Email))
                     {
-                        System.out.println("Email: "+voter.Email);
-                        System.out.println("Email2 "+personEmail);
 
                         if(voter.Voted==true) {
 

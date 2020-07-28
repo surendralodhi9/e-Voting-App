@@ -59,6 +59,8 @@ public class AdminHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                Intent intent1=new Intent(getApplicationContext(),displayVoterActivity.class);
+                startActivity(intent1);
             }
         });
     }

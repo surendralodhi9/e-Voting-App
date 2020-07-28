@@ -22,7 +22,7 @@ public class UpdateActivity extends AppCompatActivity {
     private TextView updateUsernameText;
     private EditText updateNameText;
     private EditText updateFatherNameText;
-    private EditText updateConstituencyText;
+    private TextView updateConstituencyText;
     private EditText updateSignText;
     private Button updateSaveButton;
 
@@ -106,7 +106,7 @@ public class UpdateActivity extends AppCompatActivity {
         updateUsernameText=(TextView)findViewById(R.id.updateEmail);
         updateNameText=(EditText)findViewById(R.id.updateName);
         updateFatherNameText=(EditText)findViewById(R.id.updateFatherName);
-        updateConstituencyText=(EditText)findViewById(R.id.updateConstituency);
+        updateConstituencyText=(TextView)findViewById(R.id.updateConstituency);
         updateSignText=(EditText)findViewById(R.id.updateSign);
         updateSaveButton=(Button)findViewById(R.id.saveButton);
     }

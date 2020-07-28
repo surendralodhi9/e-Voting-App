@@ -18,6 +18,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DeleteActivity extends AppCompatActivity {
 
     private TextView deleteUsername;
@@ -46,7 +50,8 @@ public class DeleteActivity extends AppCompatActivity {
                 }
                 Intent intent=getIntent();
                 String adminusername=AdminHomeActivity.Adminusername;
-                String Username=deleteUsername.getText().toString();
+                System.out.println("Admin   +"+adminusername);
+                String Username=intent.getStringExtra("username");
                 checkForAdminLogin(adminusername,Password,Username);
 
                 }
@@ -91,14 +96,20 @@ public class DeleteActivity extends AppCompatActivity {
     protected void deleteCandidate(String Username)
     {
 
+
         DatabaseReference dbcandidate = FirebaseDatabase.getInstance().getReference();
+
         Query applesQuery = dbcandidate.child("Candidate").orderByChild("Username").equalTo(Username);
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
+
+                    Candidate candidate=appleSnapshot.getValue(Candidate.class);
+
                     appleSnapshot.getRef().removeValue();
+
                 }
                 Toast.makeText(getApplicationContext(),"Candidate deleted successfully!!",Toast.LENGTH_LONG).show();
                 deletePassword.setText("");
@@ -109,6 +120,7 @@ public class DeleteActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Candidate not deleted...",Toast.LENGTH_LONG).show();
             }
         });
+
     }
     protected void deleteResult(String Username)
     {
@@ -123,7 +135,6 @@ public class DeleteActivity extends AppCompatActivity {
                 }
                 //.makeText(getApplicationContext(),"Candidate deleted successfully!!",Toast.LENGTH_LONG).show();
             }
-
             @Override
             public void onCancelled(DatabaseError databaseError) {
                 Toast.makeText(getApplicationContext(),"Result not deleted...",Toast.LENGTH_LONG).show();

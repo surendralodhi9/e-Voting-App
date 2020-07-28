@@ -7,6 +7,17 @@
     android:background="@color/background_color"
     tools:context=".RegistrationActivity">
 
+    <Spinner
+        android:id="@+id/candidateConstituencySpinner"
+        android:layout_width="206dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/updateFatherName" />
+
     <EditText
         android:id="@+id/updateSign"
         android:layout_width="206dp"
@@ -20,7 +31,7 @@
         android:inputType="textEmailAddress"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateConstituency" />
+        app:layout_constraintTop_toBottomOf="@+id/candidateConstituencySpinner" />
 
     <TextView
         android:id="@+id/lableSign"
@@ -36,21 +47,6 @@
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lableConstituency" />
-
-    <EditText
-        android:id="@+id/updateConstituency"
-        android:layout_width="206dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="36dp"
-        android:layout_marginRight="36dp"
-        android:background="@drawable/edit_text_background"
-        android:ems="10"
-        android:hint="Enter Constituency"
-        android:inputType="textEmailAddress"
-        android:textColor="@android:color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/updateFatherName" />
 
     <TextView
         android:id="@+id/lableConstituency"

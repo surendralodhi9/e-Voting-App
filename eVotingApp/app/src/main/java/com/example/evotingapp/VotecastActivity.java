@@ -44,7 +44,7 @@ public class VotecastActivity extends AppCompatActivity {
         intentLogOut.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
         voterName.setText(voter.Name);
-        addDataInList();
+        addDataInList(voter.Constituency);
         //updateVotingStatus(voter,intent.getStringExtra("voterid"));
     }
     public static void updateVotingStatus()
@@ -55,10 +55,9 @@ public class VotecastActivity extends AppCompatActivity {
 
         //Toast.makeText(getApplicationContext(),"Congratulations!! you casted your vote",Toast.LENGTH_LONG).show();
     }
-    protected void addDataInList()
+    protected void addDataInList(final String Constituency)
     {
 
-        System.out.println("Calling addDataInList: "+candidatesList.size());
         databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -68,14 +67,13 @@ public class VotecastActivity extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot:snapshot.getChildren())
                 {
                     Candidate candidate=dataSnapshot.getValue(Candidate.class);
-                    candidatesList.add(candidate);
+                    if(Constituency.equalsIgnoreCase(candidate.Constituency))
+                           candidatesList.add(candidate);
 
                 }
                 AdapterCandidate myAdapter=new AdapterCandidate(getApplicationContext(),R.layout.grid_view_all_candidate_list,candidatesList);
                 displayVotecastGrid.setAdapter(myAdapter);
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 

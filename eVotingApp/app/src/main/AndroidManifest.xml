@@ -12,9 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VotecastActivity"
-               android:parentActivityName=".LoginActivity">
-        </activity>
+        <activity android:name=".updateVoterActivity"></activity>
+        <activity android:name=".displayVoterActivity" />
+        <activity
+            android:name=".VotecastActivity"
+            android:parentActivityName=".LoginActivity" />
         <activity android:name=".RegisterVoterActivity" />
         <activity
             android:name=".UpdateActivity"
@@ -28,19 +30,25 @@
         <activity android:name=".AdminHomeActivity" />
         <activity android:name=".ModifyCandidateActivity" />
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".HelpActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".ContactActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".LoginActivity"
-            android:parentActivityName=".MainActivity"/>
-        <activity android:name=".AdminActivity"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContactActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AdminActivity"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

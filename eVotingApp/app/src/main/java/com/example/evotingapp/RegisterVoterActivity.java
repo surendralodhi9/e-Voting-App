@@ -24,7 +24,6 @@ import java.util.List;
 
 public class RegisterVoterActivity extends AppCompatActivity {
 
-
     public EditText voterEmail;
     public EditText voterName;
     public EditText voterAge;
@@ -80,7 +79,6 @@ public class RegisterVoterActivity extends AppCompatActivity {
 
                 conId=position;
                 //voterEmail.setText(constituencyList[conId]);
-
             }
 
             @Override
