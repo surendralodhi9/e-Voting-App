@@ -29,6 +29,7 @@ public class DisplayActivity extends AppCompatActivity {
         displayFatherName.setText(candidate.FatherName);
         displayConstituency.setText(candidate.Constituency);
         displaySign.setText(candidate.Sign);
+
     }
     protected void setUpAllUi()
     {
