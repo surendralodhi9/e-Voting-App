@@ -49,6 +49,7 @@ public class DeleteActivity extends AppCompatActivity {
                     return;
                 }
                 Intent intent=getIntent();
+
                 String adminusername=AdminHomeActivity.Adminusername;
                 System.out.println("Admin   +"+adminusername);
                 String Username=intent.getStringExtra("username");
@@ -73,14 +74,12 @@ public class DeleteActivity extends AppCompatActivity {
                     Admin admin = snapshot1.getValue(Admin.class);
 
 
-                    if(Username.equalsIgnoreCase(admin.Username)&&Password.equalsIgnoreCase(admin.Password))
+                    if((Username==null||Username.equalsIgnoreCase(admin.Username))&&Password.equalsIgnoreCase(admin.Password))
                     {
                         deleteCandidate(Candidateusername);
                         deleteResult(Candidateusername);
                         return;
                     }
-
-
                 }
                 Toast.makeText(getApplicationContext(),"Please enter correct password",Toast.LENGTH_LONG).show();
 

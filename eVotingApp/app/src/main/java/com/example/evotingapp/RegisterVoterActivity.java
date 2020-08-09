@@ -145,7 +145,6 @@ public class RegisterVoterActivity extends AppCompatActivity {
         }
         return false;
     }
-
     protected boolean goodFormate(String age)
     {
 

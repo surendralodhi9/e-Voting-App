@@ -47,29 +47,7 @@ public class RegistrationActivity extends AppCompatActivity {
 
         setUpAllUi();
         list=new ArrayList<>();
-        dbReferenceResult=FirebaseDatabase.getInstance().getReference().child("Result");
-
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                if(snapshot.exists())
-                    MaxId=(snapshot.getChildrenCount());
-                for(DataSnapshot dataSnapshot:snapshot.getChildren())
-                {
-                    Candidate candidate=dataSnapshot.getValue(Candidate.class);
-
-                   list.add(candidate);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
+        intializeDatabase();
         addSpinner();
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +76,7 @@ public class RegistrationActivity extends AppCompatActivity {
                         return;
                     }
 
+                intializeId();
                 Candidate candidate=new Candidate(MaxId+1,Username,Name,FatherName,Constituency,Sign);
                 Result result=new Result(MaxId+1,Username);
 
@@ -109,9 +88,51 @@ public class RegistrationActivity extends AppCompatActivity {
                 FatherNameText.setText("");
                 addSpinner();
                 SignText.setText("");
+                //intializeDatabase();
 
             }
         });
+    }
+    protected void intializeDatabase(){
+
+        dbReferenceResult=FirebaseDatabase.getInstance().getReference().child("Result");
+
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("Candidate");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                list=new ArrayList<>();
+                if(snapshot.exists())
+                    MaxId=(snapshot.getChildrenCount());
+                for(DataSnapshot dataSnapshot:snapshot.getChildren())
+                {
+                    Candidate candidate=dataSnapshot.getValue(Candidate.class);
+
+
+                    list.add(candidate);
+                }
+                System.out.println("Callinnnnnnggggggg");
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+    public void intializeId(){
+
+        for(int i=0;i<list.size();i++)
+        {
+
+            //System.out.print("List  "+list.get(i).Id);
+            if(list.get(i).Id!=i+1) {
+                MaxId = i;
+                return;
+            }
+        }
+        MaxId=list.size();
     }
     protected void addSpinner()
     {
@@ -129,7 +150,6 @@ public class RegistrationActivity extends AppCompatActivity {
                 conId=position;
                 //voterEmail.setText(constituencyList[conId]);
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
