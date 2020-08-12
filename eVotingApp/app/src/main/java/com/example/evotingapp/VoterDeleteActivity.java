@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,25 +18,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
+public class VoterDeleteActivity extends AppCompatActivity {
 
-public class DeleteActivity extends AppCompatActivity {
 
-    private TextView deleteUsername;
+    private Button confirmDelete;
     private EditText deletePassword;
-    private Button deleteConfirmButton;
+    private TextView displayDeletingUsername;
     private DatabaseReference databaseReference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_delete);
+        setContentView(R.layout.activity_voter_delete);
 
         setUpAllUi();
         Intent intent=getIntent();
-        deleteUsername.setText("Deleting: "+intent.getStringExtra("username"));
+        displayDeletingUsername.setText("Deleting: "+intent.getStringExtra("username"));
 
-        deleteConfirmButton.setOnClickListener(new View.OnClickListener() {
+        confirmDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -55,10 +52,10 @@ public class DeleteActivity extends AppCompatActivity {
                 String Username=intent.getStringExtra("username");
                 checkForAdminLogin(adminusername,Password,Username);
 
-                }
+            }
         });
     }
-    public void checkForAdminLogin(final String Username, final String Password, final String Candidateusername)
+    public void checkForAdminLogin(final String Username, final String Password, final String VoterUsername)
     {
 
 
@@ -76,8 +73,7 @@ public class DeleteActivity extends AppCompatActivity {
 
                     if((Username==null||Username.equalsIgnoreCase(admin.Username))&&Password.equalsIgnoreCase(admin.Password))
                     {
-                        deleteCandidate(Candidateusername);
-                        deleteResult(Candidateusername);
+                        deleteVoter(VoterUsername);
                         return;
                     }
                 }
@@ -92,58 +88,36 @@ public class DeleteActivity extends AppCompatActivity {
         });
 
     }
-    protected void deleteCandidate(String Username)
+    protected void deleteVoter(String Username)
     {
 
 
-        DatabaseReference dbcandidate = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference dbVoter = FirebaseDatabase.getInstance().getReference();
 
-        Query applesQuery = dbcandidate.child("Candidate").orderByChild("Username").equalTo(Username);
+        Query applesQuery = dbVoter.child("Voter").orderByChild("Email").equalTo(Username);
 
         applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
 
-                    Candidate candidate=appleSnapshot.getValue(Candidate.class);
-
+                    Voter voter=appleSnapshot.getValue(Voter.class);
                     appleSnapshot.getRef().removeValue();
-
                 }
-                Toast.makeText(getApplicationContext(),"Candidate deleted successfully!!",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Voter deleted successfully!!",Toast.LENGTH_LONG).show();
                 deletePassword.setText("");
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"Candidate not deleted...",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Voter not deleted...",Toast.LENGTH_LONG).show();
             }
         });
 
     }
-    protected void deleteResult(String Username)
-    {
-        DatabaseReference dbcandidate = FirebaseDatabase.getInstance().getReference();
-        Query applesQuery = dbcandidate.child("Result").orderByChild("Username").equalTo(Username);
+    protected void setUpAllUi(){
 
-        applesQuery.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot appleSnapshot: dataSnapshot.getChildren()) {
-                    appleSnapshot.getRef().removeValue();
-                }
-                //.makeText(getApplicationContext(),"Candidate deleted successfully!!",Toast.LENGTH_LONG).show();
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"Result not deleted...",Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-    protected void setUpAllUi()
-    {
-
-        deleteUsername=(TextView)findViewById(R.id.deleteEmail);
-        deletePassword=(EditText)findViewById(R.id.deletePassword);
-        deleteConfirmButton=(Button)findViewById(R.id.deleteConfirmButton);
+        confirmDelete=(Button)findViewById(R.id.voterDeleteConfirmButton);
+        deletePassword=(EditText)findViewById(R.id.voterDeletePassword);
+        displayDeletingUsername=(TextView)findViewById(R.id.voterDeleteEmail);
     }
 }

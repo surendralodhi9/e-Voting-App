@@ -27,8 +27,11 @@ public class displayVoterActivity extends AppCompatActivity {
     private EditText gmailEdit;
     private GridView displayVoterGrid;
     private Button voterUpdateButton;
+    private Button voterDeleteButton;
     DatabaseReference databaseReference;
     private ArrayList<Voter> votersList;
+    public static String Adminusername;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +39,11 @@ public class displayVoterActivity extends AppCompatActivity {
 
         setUpAllUi();
         votersList=new ArrayList<>();
+        Intent intent=getIntent();
+
+        Adminusername=intent.getStringExtra("adminusername");
+        System.out.println("Admin    "+Adminusername);
+
         addDataIntoList();
         displayVoterGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,6 +72,32 @@ public class displayVoterActivity extends AppCompatActivity {
                 Intent intent=new Intent(getApplicationContext(),updateVoterActivity.class);
 
                 intent.putExtra("voter", voter);
+                startActivity(intent);
+
+            }
+        });
+        voterDeleteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                String user=gmailEdit.getText().toString().trim();
+                if(user.length()==0)
+                {
+                    Toast.makeText(getApplicationContext(),"Please select/enter usename",Toast.LENGTH_LONG).show();
+                    return;
+                }
+                Voter voter=getSelectedVoter(user);
+                if(voter==null)
+                {
+                    Toast.makeText(getApplicationContext(),"No such user exist!!",Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                Intent intent=new Intent(getApplicationContext(),VoterDeleteActivity.class);
+                intent.putExtra("adminusername",Adminusername);
+                intent.putExtra("username",user);
+
                 startActivity(intent);
 
             }
@@ -111,6 +145,7 @@ public class displayVoterActivity extends AppCompatActivity {
         gmailEdit=(EditText)findViewById(R.id.updateVoterEmail);
         displayVoterGrid=(GridView)findViewById(R.id.voterDisplayGrid);
         voterUpdateButton=(Button)findViewById(R.id.voterUpdateButton);
+        voterDeleteButton=(Button)findViewById(R.id.voterDeleteButton);
 
     }
 }

@@ -50,12 +50,12 @@ public class RegisterVoterActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                list=new ArrayList<>();
                 if(snapshot.exists())
                     MaxId=(snapshot.getChildrenCount());
                 for(DataSnapshot dataSnapshot:snapshot.getChildren())
                 {
                     Voter voter=dataSnapshot.getValue(Voter.class);
-
                     list.add(voter);
                 }
             }
@@ -121,8 +121,8 @@ public class RegisterVoterActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Voter already exist of this username...",Toast.LENGTH_LONG).show();
                     return;
                 }
+                intializeId();
                 Voter voter=new Voter(MaxId+1,Email,Name, voterage,constituencyList[conId]);
-
 
                 databaseReference.child(String.valueOf(MaxId+1)).setValue(voter);
                 Toast.makeText(getApplicationContext(),"Voter registered successfully!!",Toast.LENGTH_LONG).show();
@@ -132,6 +132,20 @@ public class RegisterVoterActivity extends AppCompatActivity {
         });
 
     }
+    public void intializeId(){
+
+        for(int i=0;i<list.size();i++)
+        {
+
+            //System.out.print("List  "+list.get(i).Id);
+            if(list.get(i).Id!=i+1) {
+                MaxId = i;
+                return;
+            }
+        }
+        MaxId=list.size();
+    }
+
     protected boolean alreadyExist(String Email)
     {
 

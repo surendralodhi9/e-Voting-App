@@ -23,18 +23,14 @@
 
     <TextView
         android:id="@+id/voterUsernameView"
-        android:layout_width="159dp"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
         android:padding="5dp"
         android:text="surendralodhi9"
         android:textColor="@android:color/white"
-        app:layout_constraintEnd_toStartOf="@+id/voterNameView"
-        app:layout_constraintHorizontal_bias="0.031"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

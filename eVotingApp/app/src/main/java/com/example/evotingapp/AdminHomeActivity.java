@@ -60,6 +60,7 @@ public class AdminHomeActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 Intent intent1=new Intent(getApplicationContext(),displayVoterActivity.class);
+                intent1.putExtra("adminusername",welcomeUsername.getText().toString());
                 startActivity(intent1);
             }
         });

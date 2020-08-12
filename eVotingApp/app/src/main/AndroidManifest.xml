@@ -12,17 +12,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".updateVoterActivity"
-                  android:parentActivityName=".displayVoterActivity">
-
+        <activity
+            android:name=".VoterDeleteActivity"
+            android:parentActivityName=".displayVoterActivity">
         </activity>
-        <activity android:name=".displayVoterActivity"
-            android:parentActivityName=".AdminHomeActivity"/>
+        <activity
+            android:name=".updateVoterActivity"
+            android:parentActivityName=".displayVoterActivity">
+        </activity>
+        <activity
+            android:name=".displayVoterActivity"
+            android:parentActivityName=".AdminHomeActivity" />
         <activity
             android:name=".VotecastActivity"
             android:parentActivityName=".LoginActivity" />
-        <activity android:name=".RegisterVoterActivity"
-              android:parentActivityName=".AdminHomeActivity"/>
+        <activity
+            android:name=".RegisterVoterActivity"
+            android:parentActivityName=".AdminHomeActivity" />
         <activity
             android:name=".UpdateActivity"
             android:parentActivityName=".ModifyCandidateActivity" />
@@ -33,10 +39,12 @@
             android:name=".DisplayActivity"
             android:parentActivityName=".ModifyCandidateActivity" />
         <activity android:name=".AdminHomeActivity" />
-        <activity android:name=".ModifyCandidateActivity"
-                  android:parentActivityName=".AdminHomeActivity"/>
-        <activity android:name=".RegistrationActivity"
-                  android:parentActivityName=".AdminHomeActivity"/>
+        <activity
+            android:name=".ModifyCandidateActivity"
+            android:parentActivityName=".AdminHomeActivity" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:parentActivityName=".AdminHomeActivity" />
         <activity
             android:name=".HelpActivity"
             android:parentActivityName=".MainActivity" />
@@ -54,7 +62,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
+                <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
